@@ -1,6 +1,7 @@
 from player import*
 from game import*
 
-Roy = player()
-Rob = player()
+Roy = randomplayer()
+Rob = randomplayer()
 game1 = game(Roy, Rob)
+game1.Play()
