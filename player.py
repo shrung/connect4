@@ -45,7 +45,6 @@ class randomplayer(player):
         self._name = 'Rando CalRizzen'
     
     def TakeTurn(self,board):
-        
         available_columns = []
         column_counter = 0
         for column in board[0]:
@@ -54,7 +53,7 @@ class randomplayer(player):
             column_counter += 1
         choose_column = random.randint(0,len(available_columns)-1) #choose 
 #random from list of available columns
-        return choose_column
+        return available_columns[choose_column]
                 
         
     

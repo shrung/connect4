@@ -10,7 +10,6 @@ class game():
             self._board.append([])
             for j in range(0,boardx):
                 self._board[i].append(-1)
-        self.ShowBoard()
         self._lastplay = -1
         self._players = [player1,player2]
         self._players[0].SetColor(0)
@@ -20,6 +19,12 @@ class game():
         self._gamewon = -1
         self._boardfull = False
     def ShowBoard(self):
+        for i in range(self._boarddimx):
+            if i == self._lastplay:
+                print("v",end = " ")
+            else:
+                print(" ", end = " ")
+        print("")
         for row in self._board:
             for space in row:
                 if space == 0:
@@ -124,8 +129,7 @@ class game():
         self._Reset()
         #counter = 0 
         while True:
-            self.ShowBoard()
-            PlayColumn = self._players[self._currentplayer].TakeTurn(self._board)
+            PlayColumn = self._players[self._currentplayer].TakeTurn(list(list(row) for row in self._board))
             if (PlayColumn<0 or PlayColumn>=self._boarddimx):
                 print("That was out of the board.  I give up!") 
                 return
