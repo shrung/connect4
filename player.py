@@ -48,7 +48,7 @@ class randomplayer(player):
 		available_columns = []
 		column_counter = 0
 		for column in board[0]:
-			if column = -1: #check if the column is empty
+			if column == -1: #check if the column is empty
 				available_columns.append(column_counter)
 			column_counter += 1
 		choose_column = random.randint(len(available_columns)) #choose 
