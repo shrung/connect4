@@ -1,5 +1,5 @@
-from player.py import*
-from game.py import*
+from player import*
+from game import*
 
 Roy = player()
 Rob = player()
