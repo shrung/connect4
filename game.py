@@ -17,6 +17,7 @@ class game():
         self._currentplayer = 0    
         self._turnnumber = 1
         self._gamewon = -1
+        self._gamecount = 0
         self._boardfull = False
     def ShowBoard(self):
         for i in range(self._boarddimx):
@@ -31,8 +32,10 @@ class game():
                     print("0", end = " ")
                 elif space == 1:
                     print("1",end = " ")
-                else:
+                elif space == -1:
                     print(".",end = " ")
+                else:
+                    print(space,end = " ")
             print("")
         print("")
     def GetTurnNumber(self): return self._turnnumber
@@ -40,14 +43,22 @@ class game():
     def GetBoardDimX(self): return self._boarddimx
     def GetBoardDimY(self): return self._boarddimy
     def _Reset(self): 
-        for row in self._board:
-            for space in row:
-                space = -1
+        for i in range(self._boarddimy):
+            for j in range(self._boarddimy):
+                self._board[i][j] = -1
         self._lastplay = -1
-        self._currentplayer = 0    
+        self._currentplayer = self._gamecount % 2    
         self._turnnumber = 1
         self._gamewon = -1
-        self._boardfull = 0
+        self._boardfull = False
+    def PrintStats(self):
+        player0 = self._players[0].GetWin()
+        player1 = self._players[1].GetWin()
+        draws = self._gamecount - (player0+player1)
+        
+        print ("Player 0 (",self._players[0].GetName(),") has won ", 100*player0/self._gamecount,"%")
+        print ("Player 1 (",self._players[1].GetName(),") has won ", 100*player1/self._gamecount,"%")
+        print ("Draw occured ",100*draws/self._gamecount,"% of the time")
     def GetGameState(self): return self._gamewon
 
     def _CheckGameWin(self):
@@ -148,16 +159,17 @@ class game():
                 self._turnnumber = self._turnnumber + 1
                 self._lastplay = PlayColumn
                 #counter = counter + 1
-            self.ShowBoard()
+            #self.ShowBoard()
             if (self._CheckGameWin()):
                 if (self._gamewon==-1):                
-                    print("It was a draw!")
-                    return
+                    #print("It was a draw!")
+                    break
                 else: 
-                    print("Player ",self._gamewon," has won!")
-                    return
+                    #print("Player ",self._gamewon," has won!")
+                    break
             
-
+        self._gamecount += 1
+        #print(self._gamecount," games played")
 
 
 

@@ -4,4 +4,6 @@ from game import*
 Roy = randomplayer()
 Rob = randomplayer()
 game1 = game(Roy, Rob)
-game1.Play()
+for i in range(100000):
+    game1.Play()
+game1.PrintStats()
