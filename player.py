@@ -6,6 +6,8 @@ Created on Tue Sep 13 19:31:45 2016
 """
 import random
 
+import fileinput
+
 class player():
     def __init__(self):
         self._color = 0
@@ -59,4 +61,31 @@ class randomplayer(player):
         return available_columns[choose_column]
                 
         
+
+class humanplayer(player):
+    
+    def __init__(self):
+        super().__init__() #call player.__init__
+        self._name = 'Is a Real Person'
+    
+    def TakeTurn(self,board):
+        #print (board[0])
+        available_columns = []
+        column_counter = 0
+        for column in board[0]:
+            if column == -1: #check if the column is empty
+                available_columns.append(column_counter)
+            column_counter += 1
+        valid = False
+        while(not valid):
+            print ("These are available: ",available_columns)
+            column_choice = input("Choose one: ")
+            column_choice = int(column_choice)
+            print (column_choice)
+            for i in available_columns:
+                if((column_choice is available_columns[i])):
+                    valid = True
+                    print ("That was a valid choice")
+        print("returning from TakeTurn")
+        return column_choice
     
