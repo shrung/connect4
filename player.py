@@ -82,10 +82,9 @@ class humanplayer(player):
             column_choice = input("Choose one: ")
             column_choice = int(column_choice)
             print (column_choice)
-            for i in available_columns:
-                if((column_choice is available_columns[i])):
-                    valid = True
-                    print ("That was a valid choice")
+            if column_choice in available_columns:
+                valid = True
+                print ("That was a valid choice")
         print("returning from TakeTurn")
         return column_choice
     
