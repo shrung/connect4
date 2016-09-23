@@ -140,6 +140,9 @@ class game():
         self._Reset()
         #counter = 0 
         while True:
+            if self._players[self._currentplayer].GetName() == "A Real Person":
+                print("You are ",str(self._currentplayer))
+                self.ShowBoard()
             PlayColumn = self._players[self._currentplayer].TakeTurn(list(list(row) for row in self._board))
             if (PlayColumn<0 or PlayColumn>=self._boarddimx):
                 print("That was out of the board.  I give up!") 

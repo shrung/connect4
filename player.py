@@ -66,7 +66,7 @@ class humanplayer(player):
     
     def __init__(self):
         super().__init__() #call player.__init__
-        self._name = 'Is a Real Person'
+        self._name = 'A Real Person'
     
     def TakeTurn(self,board):
         #print (board[0])
@@ -84,7 +84,7 @@ class humanplayer(player):
             print (column_choice)
             if column_choice in available_columns:
                 valid = True
-                print ("That was a valid choice")
-        print("returning from TakeTurn")
+                #print ("That was a valid choice")
+        #print("returning from TakeTurn")
         return column_choice
     
