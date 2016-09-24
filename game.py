@@ -76,7 +76,7 @@ class game():
                     color = self._board[row][column]
                     #Checking for a horizontal win going right from this space
                     for i in range(1,4):
-                        if(column+i<self._boarddimy):
+                        if(column+i<self._boarddimx):
                             if self._board[row][column+i] != color:
                                 break
                             if i==3:
