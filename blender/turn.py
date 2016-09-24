@@ -1,5 +1,4 @@
 import bge
-import bpy
 from blendergame import *
 
 def turn(play):
