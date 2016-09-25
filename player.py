@@ -60,8 +60,20 @@ class randomplayer(player):
         
         return available_columns[choose_column]
                 
-        
-
+class strat1player(player):
+	def __init__(self):
+		super().__init__() # call player.__init__
+		self.name = 'BoJangles'
+	
+	def TakeTurn(self,board):
+		column_counter = 0
+		for column in board[0]: #play first available slot
+			if column == -1:
+				break
+			column_counter += 1
+		choose_column = column_counter
+		return choose_column
+		
 class humanplayer(player):
     
     def __init__(self):
