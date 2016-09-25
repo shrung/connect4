@@ -63,7 +63,7 @@ class randomplayer(player):
 class strat1player(player):
 	def __init__(self):
 		super().__init__() # call player.__init__
-		self.name = 'BoJangles'
+		self._name = 'BoJangles'
 	
 	def TakeTurn(self,board):
 		column_counter = 0
